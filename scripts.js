@@ -5,35 +5,57 @@ var playerHand;
 var dealerUpcard;
 
 switch(playerHand) {
-     case (playerHand === 21):
-        console.log('Blackjack!');
-        break;
-    default:
-        console.log("Bust!");
-        break;
+     //case (playerHand === 21):
+     //   console.log('Blackjack!');
+     //   break;
+   // default:
+       // console.log("Bust!");
+        //break;
     case (playerHand <= 8):
         hitCard();
         break;
-    case (playerHand === 9 && dealerUpcard >= 7):
-        hitCard();
+    case (playerHand === 9):                                        //double down 9-11
+        if (dealerUpcard >= 7 || dealerUpcard === 2){
+            hitCard();
+        }
+        else {
+            stay();
+        }     
         break;
-    case (playerHand === 9 && dealerUpcard <= 2):
+    
+    case (playerHand === 10):
+        if (dealerUpcard <= 9){
         hitCard();
+        }
+        else {
+            stay();
+        }
         break;
-    case (playerHand === 10 || playerHand === 11):
-        hitCard();
-        break;
-    case (playerHand === 12 && dealerUpcard <= 6 && dealerUpcard >= 4):
+    
+    case (playerHand === 11):
         stay();
         break;
+    
     case (playerHand === 12):
-        stay();
+        if (dealerUpcard >= 7 || dealerUpcard <= 3){
+            hitCard();
+        }
+        else {
+            stay();
+        }
         break;
-    case (playerHand >= 13 && playerHand < 17 && dealerUpcard <= 6):
-        stay();
+   
+   
+    case (playerHand >= 13 && playerHand < 17):
+        if (dealerUpcard <= 6){
+            stay();
+        }    
+        else {
+            hitCard();
+        }
         break;
-    case (playerHand >= 13 && playerHand < 17 && dealerUpcard > 6):
-        hitCard();
+    
+    hitCard();
         break;
     case (playerHand === 17):
         stay();
