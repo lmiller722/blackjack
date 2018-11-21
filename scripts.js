@@ -1,16 +1,9 @@
-function hitCard();
-function stay();
-
-var playerHand;
-var dealerUpcard;
 
 switch(playerHand) {
-     //case (playerHand === 21):
-     //   console.log('Blackjack!');
-     //   break;
-   // default:
-       // console.log("Bust!");
-        //break;
+     case (playerHand > 21):
+        //card values = 0;
+        break;
+
     case (playerHand <= 8):
         hitCard();
         break;
